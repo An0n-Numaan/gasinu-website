@@ -211,8 +211,8 @@
                     document.getElementById("gasinu-price").innerText = `$${Number(price).toFixed(6)}`;
                     document.getElementById("gasinu-marketcap").innerText = `$${Number(marketCap).toLocaleString()}`;
                 } else {
-                    document.getElementById("gasinu-price").innerText = "N/A";
-                    document.getElementById("gasinu-marketcap").innerText = "N/A";
+                    document.getElementById("gasinu-price").innerText = "Loading...";
+                    document.getElementById("gasinu-marketcap").innerText = "Loading...";
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
