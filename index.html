@@ -79,7 +79,7 @@
     </header>
     <div id="contract-box">
         <p><strong>Contract Address:</strong></p>
-        <p id="contract-address">hv5q9MvjxneUkVWSXtVXS15kYTLLbefZzZtMU4bpump</p>
+        <p id="contract-address">Gw6gJHkkKg2EdAYmjoxAkkARrUefc2CxmtHf34e8pump</p>
         <button onclick="copyContractAddress()">Copy CA</button>
     </div>
     <div id="price-box">
@@ -126,7 +126,7 @@
     
     <script>
         async function fetchTopHolders() {
-            const contractAddress = "2EVAVzqH5Jd8zNL42SHCiGjxt8qkXCQrZznAA3awpump";
+            const contractAddress = "Gw6gJHkkKg2EdAYmjoxAkkARrUefc2CxmtHf34e8pump";
             const apiUrl = `https://api.solscan.io/token/holders?tokenAddress=${contractAddress}`;
     
             try {
@@ -201,7 +201,7 @@
     <script>
         async function fetchGasInuData() {
             try {
-                const response = await fetch("https://pro-api.solscan.io/v1/token/market?tokenAddress=2EVAVzqH5Jd8zNL42SHCiGjxt8qkXCQrZznAA3awpump");
+                const response = await fetch("https://pro-api.solscan.io/v1/token/market?tokenAddress=Gw6gJHkkKg2EdAYmjoxAkkARrUefc2CxmtHf34e8pump");
                 const data = await response.json();
 
                 if (data.success) {
