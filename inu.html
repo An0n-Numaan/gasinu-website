@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GasFee Inu ($GASINU)</title>
+    <style>
+                #price-box {
+            position: absolute;
+            top: 400px; /* Adjust to place below the contract box */
+            /* left: 30px; */
+            right: 30px;
+            background: black;
+            padding: 10px;
+            border: 2px solid red;
+            color: yellow;
+            font-size: 16px;
+            text-align: center;
+            width: 400px;
+            border-radius: 5px;
+        }
+
+                #contract-box {
+            position: absolute;
+            top: 300px;  /* Adjust this value to move it down */
+            left: 30px;   /* Moves it to the left side  */
+            background: black;
+            padding: 10px;
+            border: 2px solid red;
+            color: yellow;
+            font-size: 16px;
+            text-align: center;
+            width: 400px;
+            border-radius: 5px;
+        }
+
+        #contract-box button {
+            background: red;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #contract-box button:hover {
+            background: darkred;
+        }
+
+        body { font-family: Arial, sans-serif; background-color: #0a0a0a; color: #fff; margin: 0; padding: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #1a1a1a; border-bottom: 2px solid red; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        nav a:hover { color: red; }
+        .logo { font-size: 24px; font-weight: bold; color: red; display: flex; align-items: center; }
+        .logo img { height: 40px; margin-right: 10px; }
+        .container { text-align: center; padding: 50px; transition: background 0.3s ease-in-out, border 0.3s ease-in-out; border: 2px solid transparent; }
+        .container:hover { background: #222; border: 2px solid red; }
+        .btn { background: red; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin-top: 20px; transition: transform 0.3s ease-in-out; font-size: 18px; }
+        .btn:hover { background: darkred; transform: scale(1.1); }
+        .footer { background: #1a1a1a; text-align: center; padding: 30px; margin-top: 50px; border-top: 2px solid red; }
+        .social-icons { margin-top: 10px; }
+        .social-icons a { background: red; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; display: inline-block; margin: 10px; transition: transform 0.3s ease-in-out; font-size: 18px; }
+        .social-icons a:hover { background: darkred; transform: scale(1.1); }
+        h1, h2 { font-weight: bold; color: #ffcc00; }
+        .coin-image { max-width: 200px; display: block; margin: 20px auto; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="GasFee Inu Logo">
+            $GASINU
+        </div>
+        <nav>
+            <a href="#manifesto">MANIFESTO</a>
+            <a href="#tokenomics">TOKENOMICS</a>
+            <a href="#community">JOIN THE REVOLT</a>
+        </nav>
+    </header>
+    <div id="contract-box">
+        <p><strong>Contract Address:</strong></p>
+        <p id="contract-address">hv5q9MvjxneUkVWSXtVXS15kYTLLbefZzZtMU4bpump</p>
+        <button onclick="copyContractAddress()">Copy CA</button>
+    </div>
+    <div id="price-box">
+        <p><strong>Live Price:</strong> <span id="gasinu-price">Loading...</span></p>
+        <p><strong>Market Cap:</strong> <span id="gasinu-marketcap">Loading...</span></p>
+    </div>
+    
+    
+    <h1 style="text-align: center; margin-top: 50px;">GasFee Inu ($GASINU)</h1>
+    <p style="text-align: center; font-weight: bold;">The only thing higher than our price is your gas fees! 🚀</p>
+    <p style="text-align: center; font-weight: bold;">Turning your pain into gains. Join the revolution against absurd gas fees and ride the wave to the moon! 🌕</p>
+    <img src="gasinu-meme.png" alt="GasFee Inu Meme Coin" class="coin-image">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <a href="#buy" class="btn">BUY $GASINU</a>
+    </div>
+    
+    <div id="manifesto" class="container">
+        <h2>Manifesto</h2>
+        <p><strong>GasFee Inu was born from frustration. We've all been there—outrageous fees just to make a simple trade. But instead of crying, we made a meme coin. Unlike other scams, we are here for the culture, the laughs, and the gains. Join us and be part of the revolution.</strong></p>
+    </div>
+    
+    <div id="tokenomics" class="container">
+        <h2>Tokenomics</h2>
+        <p><strong>Supply: 1,000,000,000 $GASINU</strong></p>
+        <p><strong>10% "gas tax" (funding for marketing, memes, and community growth)</strong></p>
+        <p><strong>LP Locked & Contract Renounced – No rug, just vibes.</strong></p>
+    </div>
+    <div id="leaderboard" class="container">
+        <h2>Top Holders</h2>
+        <table id="holders-table" style="width:100%; border-collapse: collapse; color: white;">
+            <thead>
+                <tr style="background: red; color: white;">
+                    <th style="padding: 10px; border: 1px solid yellow;">Rank</th>
+                    <th style="padding: 10px; border: 1px solid yellow;">Wallet Address</th>
+                    <th style="padding: 10px; border: 1px solid yellow;">Holdings</th>
+                    <th style="padding: 10px; border: 1px solid yellow;">Copy</th>
+                </tr>
+            </thead>
+            <tbody id="holders-body">
+                <tr><td colspan="4" style="text-align:center; padding:10px;">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script>
+        async function fetchTopHolders() {
+            const contractAddress = "2EVAVzqH5Jd8zNL42SHCiGjxt8qkXCQrZznAA3awpump";
+            const apiUrl = `https://api.solscan.io/token/holders?tokenAddress=${contractAddress}`;
+    
+            try {
+                let response = await fetch(apiUrl);
+                let data = await response.json();
+                let holders = data?.data?.result || [];
+    
+                let tbody = document.getElementById("holders-body");
+                tbody.innerHTML = "";
+    
+                holders.slice(0, 10).forEach((holder, index) => {
+                    let row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td style="padding: 10px; border: 1px solid yellow;">${index + 1}</td>
+                        <td style="padding: 10px; border: 1px solid yellow;">${holder.owner.slice(0, 6)}...${holder.owner.slice(-4)}</td>
+                        <td style="padding: 10px; border: 1px solid yellow;">${(holder.amount / 1e9).toFixed(2)} $GASINU</td>
+                        <td style="padding: 10px; border: 1px solid yellow;">
+                            <button onclick="copyToClipboard('${holder.owner}')" style="background:red; color:white; border:none; padding:5px 10px; cursor:pointer;">📋</button>
+                        </td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching holders:", error);
+                document.getElementById("holders-body").innerHTML = "<tr><td colspan='4' style='text-align:center; padding:10px;'>Error loading data</td></tr>";
+            }
+        }
+    
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => alert("Address Copied!"));
+        }
+    
+        fetchTopHolders();
+        setInterval(fetchTopHolders, 60000); // Refresh every 60 seconds
+    </script>
+    
+    
+    <div id="community" class="container">
+        <h2>Join the Revolt</h2>
+        <p><strong>Follow us on Twitter & Telegram to stay updated and ride the wave!</strong></p>
+    </div>
+    <div id="gas-fee-calculator" class="container">
+        <h2>GasFee Calculator 💸</h2>
+        <p><strong>Enter your wasted gas fees and see how much $GASINU you could have bought instead! 🤯</strong></p>
+        <input type="number" id="gas-fee-input" placeholder="Enter Gas Fee in SOL" style="padding: 10px; font-size: 16px;">
+        <button onclick="calculateGasFee()" class="btn">Calculate</button>
+        <p id="gas-fee-result" style="font-size: 18px; font-weight: bold; margin-top: 10px;"></p>
+        <img id="gas-fee-meme" src="" alt="Gas Meme" style="max-width: 300px; margin-top: 10px; display: none;">
+    </div>
+    
+    
+    <div class="footer">
+        <p>&copy; 2025 <strong>GasFee Inu</strong>. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Telegram</a>
+            <a href="#" target="_blank">Website</a>
+        </div>
+    </div>
+    <script>
+        function copyContractAddress() {
+            var contractAddress = document.getElementById("contract-address").innerText;
+            navigator.clipboard.writeText(contractAddress).then(() => {
+                alert("Contract Address Copied!");
+            });
+        }
+    </script>
+    <script>
+        async function fetchGasInuData() {
+            try {
+                const response = await fetch("https://pro-api.solscan.io/v1/token/market?tokenAddress=2EVAVzqH5Jd8zNL42SHCiGjxt8qkXCQrZznAA3awpump");
+                const data = await response.json();
+
+                if (data.success) {
+                    const price = data.data.priceUsdt || "N/A";
+                    const marketCap = data.data.marketCap || "N/A";
+
+                    document.getElementById("gasinu-price").innerText = `$${Number(price).toFixed(6)}`;
+                    document.getElementById("gasinu-marketcap").innerText = `$${Number(marketCap).toLocaleString()}`;
+                } else {
+                    document.getElementById("gasinu-price").innerText = "N/A";
+                    document.getElementById("gasinu-marketcap").innerText = "N/A";
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        setInterval(fetchGasInuData, 10000);
+        fetchGasInuData();
+
+    </script>
+        
+    <script>
+        function calculateGasFee() {
+            var gasFee = parseFloat(document.getElementById("gas-fee-input").value);
+            if (isNaN(gasFee) || gasFee <= 0) {
+                alert("Enter a valid gas fee!");
+                return;
+            }
+    
+            // Fake exchange rate (adjust later based on market price)
+            var gasinuRate = 1000000; // Example: 1 SOL = 1M $GASINU
+            var gasinuAmount = gasFee * gasinuRate;
+    
+            document.getElementById("gas-fee-result").innerText = 
+                `You could have bought ${gasinuAmount.toLocaleString()} $GASINU instead! 😂`;
+    
+            // Meme Images (randomly select one)
+            var memes = [
+                "gasinu-meme.png",
+                "gasinu-meme.png",
+                "gasinu-meme.png"
+            ];
+            var randomMeme = memes[Math.floor(Math.random() * memes.length)];
+            document.getElementById("gas-fee-meme").src = randomMeme;
+            document.getElementById("gas-fee-meme").style.display = "block";
+        }
+    </script>
+    
+    
+</body>
+</html>
